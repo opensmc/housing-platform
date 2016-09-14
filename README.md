@@ -6,7 +6,7 @@ Every year, all cities within the State of California must report on their respe
 
 ### Goal
 
-In partership with the Association of Bay Area Governments (ABAG) ([http://www.abag.ca.gov](http://www.abag.ca.gov)) and 21 Elements ([http://www.21elements.com/About-Us/about.html](http://www.21elements.com/About-Us/about.html)), OpenSMC will be developing a Pilot Housing Platform to simplify the way in which cities report annual housing construction activity to the HCD and ABAG.  The goal with the Pilot Housing Platform is to simplify the reporting process by transforming the [form](https://docs.google.com/spreadsheets/d/1Dkl7WTLeSQubZj0i41Nh3y_kcRrICYNv4OVkGMf9tdg/edit?usp=sharing) into an easy interface that cities can use to input housing production data.
+In partnership with the Association of Bay Area Governments (ABAG) ([http://www.abag.ca.gov](http://www.abag.ca.gov)) and 21 Elements ([http://www.21elements.com/About-Us/about.html](http://www.21elements.com/About-Us/about.html)), OpenSMC will be developing a Pilot Housing Platform to simplify the way in which cities report annual housing construction activity to the HCD and ABAG.  The goal with the Pilot Housing Platform is to simplify the reporting process by transforming the [form](https://docs.google.com/spreadsheets/d/1Dkl7WTLeSQubZj0i41Nh3y_kcRrICYNv4OVkGMf9tdg/edit?usp=sharing) into an easy interface that cities can use to input housing production data.
 
 ### Participating Cities
 
