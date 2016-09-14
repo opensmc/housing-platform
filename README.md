@@ -21,8 +21,8 @@ The following six cities have volunteered to participate and share their user ex
 
 ### Next Steps
 
-- By September 9, 2016, collect housing production data from the volunteer cities.  A [google shared folder](https://drive.google.com/folderview?id=0Bxf3wUOZwMIOei1Wa2FCd1Rwem8&usp=sharing) has been created to collect the datasets.  So far, we have data from Redwood City between 2011-2015 and reported housing production numbers from all Bay Area cities between 2007-2014.
-- September 13, 2016:  Schedule a whiteboard session to brainstorm on the design of platform and build a team.
+- Meet with members of HCD and ABAG to understand the existing end-to-end process for collecting annual housing data from cities and understand user needs and challenges.
+- Schedule a whiteboard session to brainstorm on the design of the housing platform and build a team.
 
 ### Resources
 
