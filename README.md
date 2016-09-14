@@ -28,3 +28,8 @@ The following six cities have volunteered to participate and share their user ex
 
 - [Current Form for Annual Housing Production Report](https://docs.google.com/spreadsheets/d/1Dkl7WTLeSQubZj0i41Nh3y_kcRrICYNv4OVkGMf9tdg/edit?usp=sharing)
 - [Datasets Folder](https://drive.google.com/folderview?id=0Bxf3wUOZwMIOei1Wa2FCd1Rwem8&usp=sharing)
+
+### Contact
+Michelle Littlefield, OpenSMC Brigade Captain  
+A Code For America Brigade Serving San Mateo County  
+Email: mlittlefield@opensmc.org  
