@@ -1,0 +1,57 @@
+html {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #455560;
+}
+
+body {
+  margin: 0;
+}
+
+p,
+ul,
+ol {
+  margin-top: 0;
+}
+
+a,
+a:visited {
+  color: #0076c0;
+  text-decoration: none;
+  border-bottom: 1px solid #39839b;
+}
+
+h2 {
+  margin: 1.25em auto 0.25em;
+  color: #39839b;
+}
+
+#site-header {
+  padding: 1.5em 0 0.5em;
+  background-color: #056cb6; /* bay blue */
+  color: #fff;
+  border-bottom: 4px solid #39839b;  /* ocean turquoise */
+}
+
+#site-header h1,
+main,
+#site-footer p {
+  padding: 0 5%;  
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+#site-footer {
+  margin-top: 3em;
+  border-top: 4px solid #39839b;  /* ocean turquoise */
+  padding: 2em 0;
+  background-color: #056cb6; /* bay blue */
+  color: #fff;
+  text-align: center;
+}
+
+#site-footer a,
+#site-footer a:visited {
+  color: #fff;
+  border-bottom-color: #bbb0a6;
+}
