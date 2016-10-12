@@ -26,4 +26,16 @@ def test_init():
         backend = HousingBackend(sql_filename=sql_filename)
 
     
+def test_insert_city():
+    """
+    Can we put in a municipality and read it?
+    """
 
+    with tempfile.TemporaryDirectory() as temp_dir:
+        sql_filename = os.path.join(temp_dir, 'test.sql')
+        create_backend(sql_file=sql_filename)
+        backend = HousingBackend(sql_filename=sql_filename)
+
+        backend.insert_city(city_name='Happyville')
+        city_id = backend.select_city_id(city_name='Happyville')
+        assert city_id == 1
