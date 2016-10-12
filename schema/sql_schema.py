@@ -1,33 +1,31 @@
+CREATION_SQL = """
 CREATE TABLE municipality(
-  municipality_id INTEGER,
-  name VARCHAR(255),
-  PRIMARY KEY (ID)
+  municipality_id INTEGER PRIMARY KEY,
+  name VARCHAR(255)
 );
 
 CREATE TABLE status(
-  ID INTEGER,
-  name VARCHAR(255),
-  PRIMARY KEY (ID)
+  status_id INTEGER PRIMARY KEY,
+  name VARCHAR(255)
 );
 
 CREATE TABLE permits(
-  permit_id INTEGER,
+  permit_id INTEGER PRIMARY KEY,
   request_date DATETIME,
   issue_date DATETIME NOT NULL,
   completion_date DATETIME,
   applicant VARCHAR(255),
-  approving_authority VARCHAR(255),
-  PRIMARY KEY(permit_id)
+  approving_authority VARCHAR(255)
 );
 
 CREATE TABLE permit_ids(
   municipality_id INTEGER,
   external_id INTEGER,
   permit_id INTEGER UNIQUE,
-  status INTEGER,
-  PRIMARY KEY(municipality, external_id),
-  FOREIGN KEY(municipality) REFERENCES municipality(municipality_id),
-  FOREIGN KEY(status) REFERENCES status(ID),
+  status_id INTEGER,
+  PRIMARY KEY(municipality_id, external_id),
+  FOREIGN KEY(municipality_id) REFERENCES municipality(municipality_id),
+  FOREIGN KEY(status_id) REFERENCES status(status_id),
   FOREIGN KEY(permit_id) REFERENCES permits(permit_id)
 );
 
@@ -39,11 +37,11 @@ CREATE TABLE properties(
   postal_code VARCHAR(20) NOT NULL,
   property_size VARCHAR(255),
   PRIMARY KEY (APN, municipality_id),
-  FOREIGN KEY (municipality_id) REFERNCES municipality(municipality_id)
+  FOREIGN KEY (municipality_id) REFERENCES municipality(municipality_id)
 );
 
 CREATE TABLE housing_type(
-  housing_type_id INTEGER,
+  housing_type_id INTEGER PRIMARY KEY,
   name VARCHAR(255)
 );
 
@@ -67,9 +65,9 @@ CREATE TABLE completed(
   units INTEGER,
   rate VARCHAR(255),
   date_planned DATETIME,
-  PRIMARY KEY(permit_id, APN, type),
+  PRIMARY KEY(permit_id, APN, housing_type_id),
   FOREIGN KEY(permit_id) REFERENCES permits(permit_id),
   FOREIGN KEY(housing_type_id) REFERENCES housing_type(housing_type_id),
   FOREIGN KEY(APN) REFERENCES properties(APN)
 );
-
+"""
