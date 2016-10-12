@@ -39,3 +39,19 @@ def test_insert_city():
         backend.insert_city(city_name='Happyville')
         city_id = backend.select_city_id(city_name='Happyville')
         assert city_id == 1
+
+
+def test_insert_housing_type():
+    """
+    Can we insert and then select housing types?
+    """
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        sql_filename = os.path.join(temp_dir, 'test.sql')
+        create_backend(sql_file=sql_filename)
+        backend = HousingBackend(sql_filename=sql_filename)
+
+        backend.insert_housing_type(housing_type='Below market')
+        housing_id = backend.select_housing_type_id(housing_type='below market')
+        assert housing_id == 1
+        
