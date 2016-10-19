@@ -54,4 +54,18 @@ def test_insert_housing_type():
         backend.insert_housing_type(housing_type='Below market')
         housing_id = backend.select_housing_type_id(housing_type='below market')
         assert housing_id == 1
+
         
+def test_status():
+    """
+    Can we insert and get the ID for a status?
+    """
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        sql_filename = os.path.join(temp_dir, 'test.sql')
+        create_backend(sql_file=sql_filename)
+        backend = HousingBackend(sql_filename=sql_filename)
+
+        backend.insert_status(status_name='Something')
+        status_id = backend.select_status_id(status_name='something')
+        assert status_id == 1
