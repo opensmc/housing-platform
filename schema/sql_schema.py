@@ -1,24 +1,24 @@
 CREATION_SQL = """
 CREATE TABLE municipality(
   municipality_id INTEGER PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR UNIQUE
 );
 
 CREATE TABLE status(
   status_id INTEGER PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR UNIQUE
 );
 
-CREATE TABLE permits(
+CREATE TABLE permit_ids(
   permit_id INTEGER PRIMARY KEY,
   request_date DATETIME,
   issue_date DATETIME NOT NULL,
   completion_date DATETIME,
-  applicant VARCHAR(255),
-  approving_authority VARCHAR(255)
+  applicant VARCHAR,
+  approving_authority VARCHAR
 );
 
-CREATE TABLE permit_ids(
+CREATE TABLE permit_info(
   municipality_id INTEGER,
   external_id INTEGER,
   permit_id INTEGER UNIQUE,
@@ -26,10 +26,10 @@ CREATE TABLE permit_ids(
   PRIMARY KEY(municipality_id, external_id),
   FOREIGN KEY(municipality_id) REFERENCES municipality(municipality_id),
   FOREIGN KEY(status_id) REFERENCES status(status_id),
-  FOREIGN KEY(permit_id) REFERENCES permits(permit_id)
+  FOREIGN KEY(permit_id) REFERENCES permit_ids(permit_id)
 );
 
-CREATE TABLE properties(
+CREATE TABLE locations(
   APN VARCHAR(255),
   municipality_id INTEGER,
   street_address VARCHAR(255) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE planned(
   PRIMARY KEY(permit_id, APN, housing_type_id),
   FOREIGN KEY(permit_id) REFERENCES permits(permit_id),
   FOREIGN KEY(housing_type_id) REFERENCES housing_type(housing_type_id),
-  FOREIGN KEY(APN) REFERENCES properties(APN)
+  FOREIGN KEY(APN) REFERENCES locations(APN)
 );
 
 CREATE TABLE completed(
@@ -68,6 +68,6 @@ CREATE TABLE completed(
   PRIMARY KEY(permit_id, APN, housing_type_id),
   FOREIGN KEY(permit_id) REFERENCES permits(permit_id),
   FOREIGN KEY(housing_type_id) REFERENCES housing_type(housing_type_id),
-  FOREIGN KEY(APN) REFERENCES properties(APN)
+  FOREIGN KEY(APN) REFERENCES locations(APN)
 );
 """

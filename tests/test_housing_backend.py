@@ -69,3 +69,19 @@ def test_status():
         backend.insert_status(status_name='Something')
         status_id = backend.select_status_id(status_name='something')
         assert status_id == 1
+
+
+def test_apn():
+    """
+    APN insertion turns out to be the first of the complicated ones.
+    """
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        sql_filename = os.path.join(temp_dir, 'test.sql')
+        create_backend(sql_file=sql_filename)
+        backend = HousingBackend(sql_filename=sql_filename)
+
+        backend.insert_city(city_name='Camelot')
+        backend.insert_apn(apn='00001', city_name='Camelot')
+        result = backend.select_apn(apn='00001', city_name='Camelot')
+        print(result)
