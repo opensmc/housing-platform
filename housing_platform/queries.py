@@ -17,17 +17,17 @@ SELECT_STATUS_SQL = ("SELECT status_id FROM status "
 INSERT_APN_SQL = """
 INSERT INTO locations(APN, municipality_id, street_address, unit_number,
                       postal_code, property_size) VALUES (
-                        '{APN}',
+                        :APN,
                         (SELECT municipality_id FROM municipality
-                         WHERE name='{city_name}'),
-                        '{street_address}', '{unit_number}',
-                        '{postal_code}', '{property_size}')
+                         WHERE name=:city_name),
+                        :street_address, :unit_number,
+                        :postal_code, :property_size)
 """
 
 SELECT_APN_SQL = """
-SELECT * FROM locations WHERE APN='{APN}'
+SELECT * FROM locations WHERE APN=:APN
     AND municipality_id=(SELECT municipality_id FROM municipality
-                         WHERE name='{city_name}')
+                         WHERE name=:city_name)
 """
                 
 

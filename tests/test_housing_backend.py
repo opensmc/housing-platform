@@ -82,6 +82,9 @@ def test_apn():
         backend = HousingBackend(sql_filename=sql_filename)
 
         backend.insert_city(city_name='Camelot')
-        backend.insert_apn(apn='00001', city_name='Camelot')
+        backend.insert_apn(apn='00001', city_name='Camelot',
+                           street_address='101 Broadway',
+                           postal_code='12345')
         result = backend.select_apn(apn='00001', city_name='Camelot')
-        print(result)
+        assert result['postal_code'] == '12345'
+        assert result['street_address'] == '101 Broadway'

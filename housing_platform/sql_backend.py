@@ -26,7 +26,13 @@ class HousingBackend():
         self.cursor.execute(query)
         return self.cursor.fetchone()[0]
 
-
+    def format_fetchone(self):
+        row = self.cursor.fetchone()
+        result = {}
+        for idx, col in enumerate(self.cursor.description):
+            result[col[0]] = row[idx]
+        return result
+    
     def insert_city(self, city_name):
         city_name = city_name.lower()
         self.cursor.execute(INSERT_CITY_SQL.format(name=city_name))
@@ -70,14 +76,15 @@ class HousingBackend():
 
         city_name = city_name.lower()
         self.cursor.execute(
-            INSERT_APN_SQL.format(
+            INSERT_APN_SQL,
+            dict(
                 APN=apn,
                 city_name=city_name,
                 street_address=street_address,
                 unit_number=unit_number,
                 postal_code=postal_code,
                 property_size=property_size,
-            )
+            ),
         )
 
     def select_apn(self, apn, city_name):
@@ -85,11 +92,12 @@ class HousingBackend():
         # TODO Handle missing city
         municipality_id = self.select_city_id(city_name=city_name)
         self.cursor.execute(
-            SELECT_APN_SQL.format(
+            SELECT_APN_SQL,
+            dict(
                 APN=apn,
                 city_name=city_name,
-                )
+                ),
             )
-        return self.cursor.fetchone()
+        return self.format_fetchone()
 
         
