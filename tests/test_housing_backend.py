@@ -88,3 +88,18 @@ def test_apn():
         result = backend.select_apn(apn='00001', city_name='Camelot')
         assert result['postal_code'] == '12345'
         assert result['street_address'] == '101 Broadway'
+
+
+def test_create_permit():
+    """
+    Test our ability to create a new permit. This is just inserting
+    a new PRIMARY KEY into the permit_ids table.
+    """
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        sql_filename = os.path.join(temp_dir, 'test.sql')
+        create_backend(sql_file=sql_filename)
+        backend = HousingBackend(sql_filename=sql_filename)
+
+        backend.insert_city(city_name='Camelot')
+        backend.create_permit(permit_id=101, city_name='Camelot')

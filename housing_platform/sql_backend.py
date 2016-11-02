@@ -8,6 +8,7 @@ from housing_platform.queries import SELECT_STATUS_SQL
 from housing_platform.queries import INSERT_STATUS_SQL
 from housing_platform.queries import SELECT_APN_SQL
 from housing_platform.queries import INSERT_APN_SQL
+from housing_platform.queries import CREATE_PERMIT_SQL
 
 
 class HousingBackend():
@@ -99,5 +100,22 @@ class HousingBackend():
                 ),
             )
         return self.format_fetchone()
+
+
+    def create_permit(self, permit_id, city_name):
+        """
+        Create a new permit. This does NOT have to be a unique
+        permit_id and municipality.
+        """
+
+        self.cursor.execute(
+            CREATE_PERMIT_SQL,
+            dict(
+                permit_id=permit_id,
+                city_name=city_name,
+            ),
+        )
+
+        
 
         

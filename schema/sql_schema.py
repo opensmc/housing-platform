@@ -11,12 +11,10 @@ CREATE TABLE status(
 
 CREATE TABLE permit_ids(
   permit_id INTEGER PRIMARY KEY,
-  request_date DATETIME,
-  issue_date DATETIME NOT NULL,
-  completion_date DATETIME,
-  applicant VARCHAR,
-  approving_authority VARCHAR
-);
+  municipality_id INTEGER,
+  external_id INTEGER,
+  FOREIGN KEY(municipality_id) REFERENCES municipality(municipality_id)
+  );
 
 CREATE TABLE permit_info(
   municipality_id INTEGER,
@@ -26,6 +24,11 @@ CREATE TABLE permit_info(
   project_name VARCHAR,
   tenure VARCHAR,
   assistance_programs VARCHAR,
+  request_date DATETIME,
+  issue_date DATETIME NOT NULL,
+  completion_date DATETIME,
+  applicant VARCHAR,
+  approving_authority VARCHAR,
   PRIMARY KEY(municipality_id, external_id),
   FOREIGN KEY(municipality_id) REFERENCES municipality(municipality_id),
   FOREIGN KEY(status_id) REFERENCES status(status_id),

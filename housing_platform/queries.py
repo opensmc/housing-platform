@@ -29,5 +29,12 @@ SELECT * FROM locations WHERE APN=:APN
     AND municipality_id=(SELECT municipality_id FROM municipality
                          WHERE name=:city_name)
 """
+
+CREATE_PERMIT_SQL = """
+INSERT INTO permit_ids(external_id, municipality_id) VALUES(
+              :permit_id,
+              (SELECT municipality_id FROM municipality
+               WHERE name=:city_name))
+"""
                 
 
