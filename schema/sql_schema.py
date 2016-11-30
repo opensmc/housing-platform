@@ -29,7 +29,7 @@ CREATE TABLE permit_info(
   completion_date DATETIME,
   applicant VARCHAR,
   approving_authority VARCHAR,
-  PRIMARY KEY(municipality_id, external_id),
+  PRIMARY KEY(permit_id),
   FOREIGN KEY(municipality_id) REFERENCES municipality(municipality_id),
   FOREIGN KEY(status_id) REFERENCES status(status_id),
   FOREIGN KEY(permit_id) REFERENCES permit_ids(permit_id)

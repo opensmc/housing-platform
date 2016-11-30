@@ -102,4 +102,16 @@ def test_create_permit():
         backend = HousingBackend(sql_filename=sql_filename)
 
         backend.insert_city(city_name='Camelot')
+        backend.insert_status(status_name='Something')
         backend.create_permit(permit_id=101, city_name='Camelot')
+
+        backend.add_permit_data(permit_id=101,
+                                city_name='Camelot',
+                                status='Something',
+                                project_name='project',
+                                tenure='Tenure',
+                                issue_date='1/1/11',
+                                completion_date='2/2/12',
+                                request_date='1/1/10',
+                                )
+                                

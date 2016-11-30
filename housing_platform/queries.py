@@ -36,5 +36,30 @@ INSERT INTO permit_ids(external_id, municipality_id) VALUES(
               (SELECT municipality_id FROM municipality
                WHERE name=:city_name))
 """
-                
+
+
+CREATE_PERMIT_DATA_SQL = """
+INSERT INTO permit_info(municipality_id, external_id, permit_id, status_id,
+                        project_name, tenure, assistance_programs,
+                        request_date, issue_date, completion_date,
+                        applicant, approving_authority)
+            VALUES((SELECT municipality_id FROM municipality
+                    WHERE name=:city_name),
+                   :external_id,
+                   (SELECT permit_id FROM permit_ids
+                    WHERE external_id=:external_id AND
+                    municipality_id=(SELECT municipality_id
+                                     FROM municipality
+                                     WHERE name=:city_name)),
+                   (SELECT status_id FROM status WHERE name=:status),
+                   :project_name,
+                   :tenure,
+                   :assistance_programs,
+                   :request_date,
+                   :issue_date,
+                   :completion_date,
+                   :applicant,
+                   :approving_authority
+                  )
+"""
 

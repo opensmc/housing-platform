@@ -9,6 +9,7 @@ from housing_platform.queries import INSERT_STATUS_SQL
 from housing_platform.queries import SELECT_APN_SQL
 from housing_platform.queries import INSERT_APN_SQL
 from housing_platform.queries import CREATE_PERMIT_SQL
+from housing_platform.queries import CREATE_PERMIT_DATA_SQL
 
 
 class HousingBackend():
@@ -113,6 +114,35 @@ class HousingBackend():
             dict(
                 permit_id=permit_id,
                 city_name=city_name,
+            ),
+        )
+
+
+    def add_permit_data(
+            self, permit_id, city_name, status,
+            project_name=None, tenure=None,
+            assistance_programs=None,
+            request_date=None, issue_date=None,
+            completion_date=None, applicant=None,
+            approving_authority=None
+    ):
+        """
+        Add all the data for a permit. Try to organize it.
+        """
+        self.cursor.execute(
+            CREATE_PERMIT_DATA_SQL,
+            dict(
+                external_id=permit_id,
+                city_name=city_name,
+                status=status,
+                project_name=project_name,
+                tenure=tenure,
+                assistance_programs=assistance_programs,
+                request_date=request_date,
+                issue_date=issue_date,
+                completion_date=completion_date,
+                applicant=applicant,
+                approving_authority=approving_authority,
             ),
         )
 
