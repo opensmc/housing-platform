@@ -63,3 +63,12 @@ INSERT INTO permit_info(municipality_id, external_id, permit_id, status_id,
                   )
 """
 
+SELECT_PERMIT_DATA_SQL = """
+SELECT * FROM permit_info WHERE permit_id=(
+     SELECT permit_id FROM permit_ids
+     WHERE external_id=:external_id AND
+           municipality_id=(SELECT municipality_id
+                            FROM municipality
+                            WHERE name=:city_name)
+    )
+"""

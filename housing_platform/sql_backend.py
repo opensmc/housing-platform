@@ -10,6 +10,7 @@ from housing_platform.queries import SELECT_APN_SQL
 from housing_platform.queries import INSERT_APN_SQL
 from housing_platform.queries import CREATE_PERMIT_SQL
 from housing_platform.queries import CREATE_PERMIT_DATA_SQL
+from housing_platform.queries import SELECT_PERMIT_DATA_SQL
 
 
 class HousingBackend():
@@ -109,6 +110,7 @@ class HousingBackend():
         permit_id and municipality.
         """
 
+        city_name = city_name.lower()
         self.cursor.execute(
             CREATE_PERMIT_SQL,
             dict(
@@ -129,6 +131,7 @@ class HousingBackend():
         """
         Add all the data for a permit. Try to organize it.
         """
+        city_name = city_name.lower()
         self.cursor.execute(
             CREATE_PERMIT_DATA_SQL,
             dict(
@@ -145,6 +148,25 @@ class HousingBackend():
                 approving_authority=approving_authority,
             ),
         )
+
+        
+    def get_permit_data(self, permit_id, city_name):
+        """
+        Permit Data is returned in a giant chunk.
+        """
+        city_name = city_name.lower()
+
+        self.cursor.execute(
+            SELECT_PERMIT_DATA_SQL,
+            dict(
+                external_id=permit_id,
+                city_name=city_name,
+                )
+            )
+        fetched = self.cursor.fetchone()
+        descriptions = [x[0] for x in self.cursor.description]
+        result = dict(zip(descriptions, fetched))
+        return result
 
         
 

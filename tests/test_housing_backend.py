@@ -114,4 +114,14 @@ def test_create_permit():
                                 completion_date='2/2/12',
                                 request_date='1/1/10',
                                 )
+
+        data = backend.get_permit_data(
+            permit_id=101,
+            city_name='Camelot',
+        )
+
+        assert data['municipality_id'] == 1
+        assert data['completion_date'] == '2/2/12'
+        assert data['permit_id'] == 1
+        assert data['issue_date'] == '1/1/11'
                                 
