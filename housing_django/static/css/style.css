@@ -1,15 +1,15 @@
-input#id_username {
+/** Login styling */
+#login-form input#id_username {
   margin-bottom: 30px;
   margin-left: 20px
 }
-input#id_password {
+#login-form input#id_password {
   margin-bottom: 30px;
   margin-left: 23px
 }
-.username_span,
-.username_password {
+#login-form .label-text {
   display: inline-block;
 }
-label.username_label {
+#login-form label:first-child {
   margin-top: 20px;
 }

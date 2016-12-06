@@ -20,15 +20,15 @@
           <h3 class="panel-title">Please Sign In</h3>
         </div>
         <div class="panel-body">
-          <form method="post" action="{% url 'login' %}">
+          <form method="post" action="{% url 'login' %}" id="login-form">
             {% csrf_token %}
-            <label class="username_label">
+            <label>
               Username:
-              <span class="username_span">{{ form.username }}</span>
+              <span class="label-text">{{ form.username }}</span>
             </label>
             <label>
               Password:
-              <span class="username_password">{{ form.password }}</span>
+              <span class="label-text">{{ form.password }}</span>
             </label>
             <center>
               <input class="btn btn-success btn-sm" type="submit" value="login" />
