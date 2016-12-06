@@ -1,0 +1,9 @@
+input#id_username,
+input#id_password {
+  margin-bottom: 30px;
+  margin-left: 20px
+}
+label[for= id_username],
+label[for= id_password] {
+  margin-bottom: 25px;
+}
