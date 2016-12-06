@@ -1,14 +1,14 @@
 /** Login styling */
-#login-form input#id_username {
-  margin-bottom: 30px;
-  margin-left: 20px
-}
+#login-form input#id_username,
 #login-form input#id_password {
   margin-bottom: 30px;
-  margin-left: 23px
+  margin-left: 20px;
+  display: inline-block;
+  width: 225px;
 }
 #login-form .label-text {
   display: inline-block;
+  width: 70px;
 }
 #login-form label:first-child {
   margin-top: 20px;

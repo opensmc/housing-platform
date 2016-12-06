@@ -21,19 +21,19 @@
         </div>
         <div class="panel-body">
           <form method="post" action="{% url 'login' %}" id="login-form">
-            {% csrf_token %}
             <label>
-              Username:
-              <span class="label-text">{{ form.username }}</span>
+              <span class="label-text">Username:</span>
+              {{ form.username }}
             </label>
             <label>
-              Password:
-              <span class="label-text">{{ form.password }}</span>
+              <span class="label-text">Password:</span>
+              {{ form.password }}
             </label>
             <center>
               <input class="btn btn-success btn-sm" type="submit" value="login" />
             </center>
             <input type="hidden" name="next" value="{{ next }}" />
+            {% csrf_token %}
           </form>
         </div>
       </div>
