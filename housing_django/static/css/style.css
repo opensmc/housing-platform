@@ -1,9 +1,15 @@
-input#id_username,
-input#id_password {
+input#id_username {
   margin-bottom: 30px;
   margin-left: 20px
 }
-label[for= id_username],
-label[for= id_password] {
-  margin-bottom: 25px;
+input#id_password {
+  margin-bottom: 30px;
+  margin-left: 23px
+}
+.username_span,
+.username_password {
+  display: inline-block;
+}
+label.username_label {
+  margin-top: 20px;
 }
