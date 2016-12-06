@@ -12,3 +12,22 @@
 #login-form label:first-child {
   margin-top: 20px;
 }
+
+
+/** Style for home page  */
+
+#user-list .create-btn,
+#user-list .export-btn {
+  margin-bottom: 15px;
+}
+#user-list .export {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+#dataModal .form-control {
+  margin: 15px;
+}
+#dataModal #moreInfo {
+  display: block;
+  width: 338%;
+}
