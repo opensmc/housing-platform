@@ -3,10 +3,83 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="jumbotron">
-            
-        </div>
+  <div class="row">
+    <div class="jumbotron">
+      <button type="button" class="btn btn-success btn-sm create-btn">Create</button>
+      <button type="button" class="btn btn-info btn-sm export-btn export">Export report1</button>
+      <button type="button" class="btn btn-info btn-sm export-btn">Export report2</button>
+      <table class="table table-striped">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Address</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <tr>
+          <td>Jim</td>
+          <td>Smith</td> 
+          <td>Redwood city</td>
+          <td><button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#dataModal">Edit</button></td>
+          <td><button class="btn btn-danger btn-xs">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Lily</td>
+          <td>Brown</td> 
+          <td>Union city</td>
+          <td><button class="btn btn-warning btn-xs">Edit</button></td>
+          <td><button class="btn btn-danger btn-xs">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Henry</td>
+          <td>Dave</td> 
+          <td>Mountain view</td>
+          <td><button class="btn btn-warning btn-xs">Edit</button></td>
+          <td><button class="btn btn-danger btn-xs">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Henry</td>
+          <td>Dave</td> 
+          <td>Mountain view</td>
+          <td><button class="btn btn-warning btn-xs">Edit</button></td>
+          <td><button class="btn btn-danger btn-xs">Delete</button></td>
+        </tr>
+      </table>
     </div>
+  </div>
+</div>
+<div class="modal fade" id="dataModal" tabindex="-1" role="dialog" aria-labelledby="dataModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Data Sheet</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Address</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="34253 Cesar Place">
+          </div>
+          <div class="form-group">
+            <label for="moreInfo">More info</label>
+            <textarea class="form-control" rows="3" id="moreInfo" placeholder="Please tell us more about your husing condition"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

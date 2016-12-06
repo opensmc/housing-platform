@@ -1,3 +1,4 @@
+/** Style for login form  */
 input#id_username {
   margin-bottom: 30px;
   margin-left: 20px
@@ -12,4 +13,23 @@ input#id_password {
 }
 label.username_label {
   margin-top: 20px;
+}
+
+
+/** Style for home page  */
+
+.create-btn,
+.export-btn {
+  margin-bottom: 15px;
+}
+.export {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+#dataModal .form-control {
+  margin: 15px;
+}
+#dataModal #moreInfo {
+  display: block;
+  width: 338%;
 }
