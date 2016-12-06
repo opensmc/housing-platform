@@ -1,6 +1,5 @@
 /** Login styling */
-#login-form input#id_username,
-#login-form input#id_password {
+#login-form input {
   margin-bottom: 30px;
   margin-left: 20px;
   display: inline-block;
