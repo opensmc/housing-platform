@@ -24,10 +24,10 @@
   margin-right: 15px;
   margin-left: 15px;
 }
-#dataModal .form-control {
+#data-modal .form-control {
   margin: 15px;
 }
-#dataModal #more-info {
+#data-modal #more-info {
   display: block;
   width: 338%;
 }
