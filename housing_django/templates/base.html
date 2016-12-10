@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0">
       <title>Auth Demo</title>
-      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -59,8 +59,19 @@
     {% block content %}
     {% endblock %}
       {# Core scripts - Include with every page #}
-      <script src = "{% static 'js/jquery.min.js' %}"></script>
-      <script src = "{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" integrity="sha256-1O3BtOwnPyyRzOszK6P+gqaRoXHV6JXj8HkjZmPYhCI=" crossorigin="anonymous"></script>
+      
+      <script src="../static/js/applicantmodel.js"></script>
+      <script src="../static/js/applicantscollection.js"></script>
+      <script src="../static/js/applicantslist.js"></script>
+      <script src="../static/js/applicantslistview.js"></script>
+      <script src="../static/js/showapplicantform.js"></script>
+      <script src="../static/js/applicantcreationform.js"></script>
+      <script src="../static/js/app.js"></script>
   {% block javascript %}
   {% endblock %}
   </body>

@@ -15,9 +15,7 @@
 
 
 /** Style for home page  */
-
-#user-list .create-btn,
-#user-list .export-btn {
+.control-view {
   margin-bottom: 15px;
 }
 #user-list .export {
