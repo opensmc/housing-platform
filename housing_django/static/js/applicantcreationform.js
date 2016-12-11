@@ -1,14 +1,15 @@
 var ApplicantCreationForm = Backbone.View.extend({ 
   initialize: function() {
-    this.template = Handlebars.compile($("#applicant-form-tmp").html());
+    this.template = Handlebars.compile($('#applicant-form-tmp').html());
   },
   events: {
+    // Don't know why it can't listen to submit action,
+    // so use click instead. Appreciate anyone can tell me why.
     'click .btn-primary': 'submitForm'
   },
   submitForm: function(e) {
     e.preventDefault();
     if(this.applicantId) {
-      console.log("updatd")
       var model = this.collection.get(this.applicantId);
       model.set({
         name: this.$el.find('.name').val(),

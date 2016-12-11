@@ -3,7 +3,7 @@ var ApplicantListView = Backbone.View.extend({
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.render);
     this.listenTo(this.collection, 'change', this.render);
-    this.template = Handlebars.compile($("#applicant-template").html());
+    this.template = Handlebars.compile($('#applicant-template').html());
     this.applicantForm = options.applicantForm;
   },
   events: {

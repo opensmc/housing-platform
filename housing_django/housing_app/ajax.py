@@ -24,11 +24,9 @@ def save_applicant(request, applicant_id=None):
     return HttpResponse()    
   else:
     return Http404
-  
-
 
 
 def get_applicants(request):
-  applicants = Applicant.objects.order_by("pub_date")
+  applicants = Applicant.objects.order_by('pub_date')
   data =[{'name': applicant.name, 'county': applicant.county, 'address': applicant.address, 'id': applicant.id} for applicant in applicants]
   return HttpResponse(json.dumps(data))

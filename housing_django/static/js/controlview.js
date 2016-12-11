@@ -3,9 +3,9 @@ var ControlView = Backbone.View.extend({
     this.applicantForm = options.applicantForm;
   },
   events: {
-    'click .show-form': 'showForm'
+    'click .new-applicant': 'newApplicant'
   },
-  showForm: function() {
+  newApplicant: function() {
     this.applicantForm.render();
   },
 })
