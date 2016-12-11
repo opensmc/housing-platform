@@ -5,87 +5,85 @@
 <div class="container" id="user-list">
   <div class="row">
     <div class="jumbotron">
-      <button type="button" class="btn btn-success btn-sm create-btn" data-toggle="modal" data-target="#data-modal">Create</button>
-      <button type="button" class="btn btn-info btn-sm export-btn export">Export report1</button>
-      <button type="button" class="btn btn-info btn-sm export-btn">Export report2</button>
-      <table class="table table-striped">
-        <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Address</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        <tr>
-          <td>Jim</td>
-          <td>Smith</td> 
-          <td>Redwood city</td>
-          <td><button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#data-modal">Edit</button></td>
-          <td><button class="btn btn-danger btn-xs">Delete</button></td>
-        </tr>
-        <tr>
-          <td>Lily</td>
-          <td>Brown</td> 
-          <td>Union city</td>
-          <td><button class="btn btn-warning btn-xs">Edit</button></td>
-          <td><button class="btn btn-danger btn-xs">Delete</button></td>
-        </tr>
-        <tr>
-          <td>Henry</td>
-          <td>Dave</td> 
-          <td>Mountain view</td>
-          <td><button class="btn btn-warning btn-xs">Edit</button></td>
-          <td><button class="btn btn-danger btn-xs">Delete</button></td>
-        </tr>
-        <tr>
-          <td>Henry</td>
-          <td>Dave</td> 
-          <td>Mountain view</td>
-          <td><button class="btn btn-warning btn-xs">Edit</button></td>
-          <td><button class="btn btn-danger btn-xs">Delete</button></td>
-        </tr>
-      </table>
+      <div class="control-view">
+        <button type="button" class="btn btn-success btn-sm new-applicant" data-toggle="modal" data-target="#data-modal">Create</button>
+        <button type="button" class="btn btn-info btn-sm export-btn export">Export report1</button>
+        <button type="button" class="btn btn-info btn-sm export-btn">Export report2</button>
+      </div> 
+      <table class="table table-striped" id="applicant-list"></table>
     </div>
   </div>
 </div>
-<div class="modal fade" id="data-modal" tabindex="-1" role="dialog" aria-labelledby="data-modal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-     <form class="form-inline modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Data Sheet</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>
-            Name
-            <input type="text" class="form-control" placeholder="Jane Doe">
-          </label>
+<div class="form-view"></div>
+
+{% verbatim %}
+<script id="applicant-form-tmp" type="text/x-handlebars-template">
+  <div class="modal fade" id="data-modal" tabindex="-1" role="dialog" aria-labelledby="data-modal" aria-hidden="true" data-id="{{applicant.id}}">
+    <div class="modal-dialog modal-lg">
+       <form class="form-inline modal-content" id="applicant-form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Data Sheet</h4>
         </div>
-        <div class="form-group">
-          <label>
-            Email
-            <input type="email" class="form-control" placeholder="jane.doe@example.com">
-          </label>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>
+              Name
+              <input type="text" class="form-control name" placeholder="Jane Doe" value="{{applicant.name}}">
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              County
+              <input type="email" class="form-control county" placeholder="jane.doe@example.com" value="{{applicant.county}}">
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              Address
+              <input type="email" class="form-control address" placeholder="34253 Cesar Place" value="{{applicant.address}}">
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              More info
+              <textarea class="form-control" rows="3" id="more-info" placeholder="Please tell us more about your husing condition"></textarea>
+            </label>
+          </div>
         </div>
-        <div class="form-group">
-          <label>
-            Address
-            <input type="email" class="form-control" placeholder="34253 Cesar Place">
-          </label>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
-        <div class="form-group">
-          <label>
-            More info
-            <textarea class="form-control" rows="3" id="more-info" placeholder="Please tell us more about your husing condition"></textarea>
-          </label>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
+</script>
+{% endverbatim %}
+
+{% verbatim %}
+<script id="applicant-template" type="text/x-handlebars-template">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>County</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each applicants}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{county}}</td> 
+      <td>{{address}}</td>
+      <td><button class="btn btn-warning btn-xs update-applicant" data-toggle="modal" data-target="#data-modal" data-id={{id}}>Edit</button></td>
+      <td><button class="btn btn-danger btn-xs delete-applicant" data-id={{id}}>Delete</button></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</script>
+{% endverbatim %}
+
 {% endblock %}
