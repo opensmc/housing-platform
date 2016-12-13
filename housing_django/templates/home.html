@@ -15,6 +15,7 @@
   </div>
 </div>
 <div class="form-view"></div>
+<div class="delete-view"></div>
 
 {% verbatim %}
 <script id="applicant-form-tmp" type="text/x-handlebars-template">
@@ -78,11 +79,32 @@
       <td>{{name}}</td>
       <td>{{county}}</td> 
       <td>{{address}}</td>
-      <td><button class="btn btn-warning btn-xs update-applicant" data-toggle="modal" data-target="#data-modal" data-id={{id}}>Edit</button></td>
-      <td><button class="btn btn-danger btn-xs delete-applicant" data-id={{id}}>Delete</button></td>
+      <td><button class="btn btn-warning btn-xs update-applicant" data-toggle="modal" data-target="#data-modal" data-id="{{id}}">Edit</button></td>
+      <td><button class="btn btn-danger btn-xs delete-applicant" data-toggle="modal" data-target=".delete-modal" data-id="{{id}}">Delete</button></td>
     </tr>
   {{/each}}
   </tbody>
+</script>
+{% endverbatim %}
+
+{% verbatim %}
+<script id="applicant-delete-tmp" type="text/x-handlebars-template"> 
+  <div class="modal fade delete-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-id="{{applicant.id}}">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Attention!</h4>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete {{applicant.name}}?
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-xs delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </script>
 {% endverbatim %}
 
