@@ -15,14 +15,19 @@ $(document).ready(function() {
     el: $('.form-view'),
     collection: applicantsCollection,
   });
+  var applicantDeleteForm = new ApplicantDeleteForm({
+    el: $('.delete-view'),
+    collection: applicantsCollection,
+  })
   var controlView = new ControlView({
     el: $('.control-view'),
     collection: applicantsCollection,
     applicantForm: applicantForm
   });
-  var applicantssList = new ApplicantListView({
+  var applicantsList = new ApplicantListView({
     el: $('#applicant-list'),
     collection: applicantsCollection,
-    applicantForm: applicantForm
+    applicantForm: applicantForm,
+    applicantDeleteForm: applicantDeleteForm
   });
 });

@@ -24,7 +24,7 @@ var ApplicantCreationForm = Backbone.View.extend({
         address: this.$el.find('.address').val(),
       });
     }
-    $('#data-modal').modal('hide');
+    this.$el.find('#data-modal').modal('hide');
   },
   render: function(applicantId) {
     this.applicantId = applicantId;

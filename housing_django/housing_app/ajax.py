@@ -6,24 +6,28 @@ from django.utils import timezone
 
 
 def save_applicant(request, applicant_id=None):
-  new_applicant_info = json.loads(request.body.decode('utf-8'))
-  if request.method == 'POST':
-    name = new_applicant_info['name']
-    county = new_applicant_info['county']
-    address = new_applicant_info['address']
-    applicant = Applicant.objects.create(name = name, county = county, address = address, pub_date = timezone.now())
-    return HttpResponse(json.dumps({'id': applicant.id}), content_type='application/json')
-  elif request.method == 'PUT':
-    applicant_id = new_applicant_info['id']
+  if request.method == 'DELETE':
     applicant = Applicant.objects.get(pk=applicant_id)
-    applicant.name = new_applicant_info['name']
-    applicant.county = new_applicant_info['county']
-    applicant.address = new_applicant_info['address']
-    applicant.pub_date = timezone.now()
-    applicant.save()
-    return HttpResponse()    
+    applicant.delete()
+    return HttpResponse(json.dumps({'id': applicant_id}))
   else:
-    return Http404
+    new_applicant_info = json.loads(request.body.decode('utf-8'))
+    if request.method == 'POST':
+      name = new_applicant_info['name']
+      county = new_applicant_info['county']
+      address = new_applicant_info['address']
+      applicant = Applicant.objects.create(name = name, county = county, address = address, pub_date = timezone.now())
+      return HttpResponse(json.dumps({'id': applicant.id}), content_type='application/json')
+    elif request.method == 'PUT':
+      applicant_id = new_applicant_info['id']
+      applicant = Applicant.objects.get(pk=applicant_id)
+      applicant.name = new_applicant_info['name']
+      applicant.county = new_applicant_info['county']
+      applicant.address = new_applicant_info['address']
+      applicant.pub_date = timezone.now()
+      applicant.save()
+      return HttpResponse()
+  return Http404
 
 
 def get_applicants(request):

@@ -1,5 +1,5 @@
 var ApplicantModel = Backbone.Model.extend({
-  url: '/ajax/applicant/',
+  urlRoot: '/ajax/applicant/',
   defalut: {
     id: null,
     name: '',
