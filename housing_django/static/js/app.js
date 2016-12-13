@@ -16,13 +16,13 @@ $(document).ready(function() {
     collection: applicantsCollection,
   });
   var applicantDeleteForm = new ApplicantDeleteForm({
-    el:$('.delete-view'),
+    el: $('.delete-view'),
     collection: applicantsCollection,
   })
   var controlView = new ControlView({
     el: $('.control-view'),
     collection: applicantsCollection,
-    applicantForm: applicantForm,
+    applicantForm: applicantForm
   });
   var applicantsList = new ApplicantListView({
     el: $('#applicant-list'),

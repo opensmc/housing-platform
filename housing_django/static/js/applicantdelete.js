@@ -28,4 +28,4 @@ var ApplicantDeleteForm = Backbone.View.extend({
     
     this.$el.html(templateResults);
   },
-})
+});
