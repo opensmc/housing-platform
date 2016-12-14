@@ -1,0 +1,31 @@
+/** Login styling */
+#login-form input {
+  margin-bottom: 30px;
+  margin-left: 20px;
+  display: inline-block;
+  width: 225px;
+}
+#login-form .label-text {
+  display: inline-block;
+  width: 70px;
+}
+#login-form label:first-child {
+  margin-top: 20px;
+}
+
+
+/** Style for home page  */
+.control-view {
+  margin-bottom: 15px;
+}
+#user-list .export {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+#data-modal .form-control {
+  margin: 15px;
+}
+#data-modal #more-info {
+  display: block;
+  width: 338%;
+}
