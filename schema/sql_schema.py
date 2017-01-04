@@ -42,6 +42,8 @@ CREATE TABLE locations(
   unit_number VARCHAR(255),
   postal_code VARCHAR(20) NOT NULL,
   property_size VARCHAR(255),
+  latitude REAL,
+  longitude REAL,
   PRIMARY KEY (APN, municipality_id),
   FOREIGN KEY (municipality_id) REFERENCES municipality(municipality_id)
 );
